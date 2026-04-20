@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import HeadingTitle from '../Heading_Title/HeadingTitle';
-import events from '../../../public/fackData.json';
+import TrendingEvents from '../Trending/TrendingEvents';
+// import events from '../../../public/fackData.json';
 
 const EventCategories = () => {
-  const data = events.slice(0, 3); // only 3 items
+  const url = '../../../public/fackData.json';
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch(`${url}`)
+      .then((res) => res.json())
+      .then((jsonData) => setData(jsonData));
+  }, [url]);
 
+  const limitedData = data.slice(0, 3);
   return (
     <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
       {/* Header Section - Minimal & Editorial */}
@@ -29,8 +37,8 @@ const EventCategories = () => {
         <div className='md:col-span-7 group'>
           <div className='relative overflow-hidden bg-gray-100 rounded-sm h-[380px]'>
             <img
-              src={data[0]?.image}
-              alt={data[0]?.name}
+              src={limitedData[0]?.image}
+              alt={limitedData[0]?.name}
               className='w-full h-full object-cover group-hover:scale-105 transition duration-500 ease-out'
             />
             {/* Minimal overlay - lighter gradient */}
@@ -39,10 +47,10 @@ const EventCategories = () => {
             {/* Minimal text treatment */}
             <div className='absolute bottom-0 left-0 right-0 p-5 text-[var(--secondary-color)]'>
               <h3 className='text-2xl font-light tracking-wide'>
-                {data[0]?.name}
+                {limitedData[0]?.name}
               </h3>
               <p className='text-xs uppercase tracking-wider text-white/70 mt-1'>
-                {data[0]?.description?.substring(0, 80)}...
+                {limitedData[0]?.description?.substring(0, 80)}...
               </p>
             </div>
           </div>
@@ -50,7 +58,7 @@ const EventCategories = () => {
 
         {/* RIGHT SIDE - Two stacked cards with smaller images */}
         <div className='md:col-span-5 space-y-6'>
-          {data.slice(1).map((event, idx) => (
+          {limitedData.slice(1).map((event, idx) => (
             <div
               key={event.id}
               className='group'>
@@ -80,6 +88,9 @@ const EventCategories = () => {
         </div>
       </div>
 
+      <div className=''>
+        <TrendingEvents></TrendingEvents>
+      </div>
       {/* Minimal Footer / Pulse Section */}
       <div className='mt-12 pt-8 border-t border-gray-100'>
         <div className='flex items-center justify-between'>
