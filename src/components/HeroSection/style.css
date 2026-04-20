@@ -1,0 +1,55 @@
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+
+  /* border: 2px solid red; */
+  /* width: 100%; */
+}
+
+/* Background image */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0Rz2jhXt_71lNlddLB6t602ua_86u6gffnX-t5TuUBlNXYAXP7OS-USluWyc_UC2EmSUsDGbGcNyftsZMRUHzRpQNwAs8OnR-AruSCcvnfQH7VUsrVKWkFbLepLvD49LpaZTF8sjLsQuO2eCetyCA5mpX-Cuy7Kp9krMPsJ-7VUYxolx1njO0q9ZfpKMWvaeFYMVy8_IkN8EsrewbClM2gO2GChE2a1fnoyEPso2Tx9Xc6vkL4s5uuvChfuARQYfQajvu2Kn17_J4');
+
+  filter: grayscale(100%) brightness(0.9);
+}
+
+/* THIS creates that soft white/grey wash */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.85),
+      rgba(185, 192, 191, 0.9)
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.4),
+      transparent 60%
+    );
+
+  backdrop-filter: blur(6px);
+}
+
+/* Content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  /* max-width: 1200px; */
+  /* border: 2px solid rgb(128, 0, 11); */
+  flex-direction: column;
+}
+
+.hero p {
+  margin-top: 20px;
+  color: #5f6b67;
+}

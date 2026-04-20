@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+:root {
+  --primary-bg-color: #f8faf9;
+  --secondary-bg-color: #f8faf9;
+  --third-bg-color: #f8faf9;
+  --fourth-bg-color: #4d6453;
+  --primary-color: #1b4136;
+  --secondary-color: #f8faf9;
+  --span-color: #b5b7b3;
+  --primary-container: #004b45;
+}
+body {
+  background-color: var(--primary-bg-color);
+}
