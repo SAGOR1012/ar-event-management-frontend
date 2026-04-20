@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const SignUp = () => {
   const {
     register,
     handleSubmit,
@@ -14,8 +14,8 @@ const Login = () => {
   };
   return (
     <div>
-      <div className='min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center p-4'>
-        <div className='bg-white rounded-2xl shadow-2xl overflow-hidden max-w-5xl w-full flex'>
+      <div className='min-h-[95vh] bg-gradient-to-br from-gray-100 to-gray-200 flex  items-center justify-center  p-4'>
+        <div className='bg-white rounded-2xl shadow-2xl overflow-hidden max-w-5xl w-full flex flex-row-reverse max-h-[80vh]'>
           {/* Left Panel - Dark Green */}
           <div className='hidden lg:flex lg:w-3/5 bg-gradient-to-br from-emerald-950 to-emerald-900 relative overflow-hidden'>
             {/* Background Pattern */}
@@ -30,19 +30,19 @@ const Login = () => {
 
             <div className='relative z-10 flex flex-col justify-center px-16 py-12 text-white'>
               <p className='text-emerald-300 text-sm font-medium tracking-widest mb-4'>
-                CURATION IN MOTION
+                JOIN THE COMMUNITY
               </p>
 
               <h1 className='text-5xl font-bold leading-tight mb-6'>
-                Elevate Every
+                Start Your
                 <br />
-                Connection.
+                Journey Today.
               </h1>
 
               <p className='text-emerald-200 text-lg leading-relaxed max-w-md mb-8'>
-                Welcome to The AR Convention. A sanctuary for high-stakes event
-                curation, where every detail is orchestrated with architectural
-                precision.
+                Join thousands of event enthusiasts and discover amazing
+                experiences. Create your account and unlock exclusive access to
+                premium events.
               </p>
 
               <div className='flex items-center gap-4'>
@@ -73,7 +73,7 @@ const Login = () => {
           {/* Right Panel - Login Form */}
           <div className='w-full lg:w-2/5 p-12 flex flex-col justify-center'>
             {/* Logo */}
-            <div className='mb-8'>
+            <div className='mb-2'>
               <h2 className='text-2xl font-bold text-emerald-950 tracking-wide'>
                 AR CONVENTION
               </h2>
@@ -82,10 +82,10 @@ const Login = () => {
             {/* Welcome Text */}
             <div className='mb-8'>
               <h3 className='text-3xl font-semibold text-gray-900 mb-2'>
-                Welcome back
+                Create Your Account
               </h3>
               <p className='text-gray-500'>
-                Please enter your details to access your dashboard.
+                Join us and start discovering amazing events.
               </p>
             </div>
 
@@ -134,6 +134,35 @@ const Login = () => {
             <form
               onSubmit={handleSubmit(onSubmit)}
               className='space-y-5'>
+              {/* Full Name Field */}
+              <div>
+                <label
+                  htmlFor='name'
+                  className='block text-sm font-semibold text-gray-700 mb-2'>
+                  FULL NAME
+                </label>
+                <input
+                  id='name'
+                  type='text'
+                  placeholder='John Doe'
+                  className={`w-full px-4 py-3 border ${
+                    errors.name ? 'border-red-500' : 'border-gray-300'
+                  } rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-900 focus:border-transparent transition-all duration-200`}
+                  {...register('name', {
+                    required: 'Full name is required',
+                    minLength: {
+                      value: 2,
+                      message: 'Name must be at least 2 characters',
+                    },
+                  })}
+                />
+                {errors.name && (
+                  <p className='mt-1 text-sm text-red-500'>
+                    {errors.name.message}
+                  </p>
+                )}
+              </div>
+
               {/* Email Field */}
               <div>
                 <label
@@ -144,7 +173,7 @@ const Login = () => {
                 <input
                   id='email'
                   type='email'
-                  placeholder='curator@liaison.com'
+                  placeholder='you@example.com'
                   className={`w-full px-4 py-3 border ${
                     errors.email ? 'border-red-500' : 'border-gray-300'
                   } rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-900 focus:border-transparent transition-all duration-200`}
@@ -165,18 +194,11 @@ const Login = () => {
 
               {/* Password Field */}
               <div>
-                <div className='flex items-center justify-between mb-2'>
-                  <label
-                    htmlFor='password'
-                    className='block text-sm font-semibold text-gray-700'>
-                    PASSWORD
-                  </label>
-                  <a
-                    href='#'
-                    className='text-sm font-medium text-amber-800 hover:text-amber-900 transition-colors'>
-                    Forgot?
-                  </a>
-                </div>
+                <label
+                  htmlFor='password'
+                  className='block text-sm font-semibold text-gray-700 mb-2'>
+                  PASSWORD
+                </label>
                 <input
                   id='password'
                   type='password'
@@ -199,21 +221,48 @@ const Login = () => {
                 )}
               </div>
 
-              {/* Sign In Button */}
+              {/* Confirm Password Field */}
+              {/* <div>
+                <label
+                  htmlFor='confirmPassword'
+                  className='block text-sm font-semibold text-gray-700 mb-2'>
+                  CONFIRM PASSWORD
+                </label>
+                <input
+                  id='confirmPassword'
+                  type='password'
+                  placeholder='••••••••'
+                  className={`w-full px-4 py-3 border ${
+                    errors.confirmPassword
+                      ? 'border-red-500'
+                      : 'border-gray-300'
+                  } rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-900 focus:border-transparent transition-all duration-200`}
+                  {...register('confirmPassword', {
+                    required: 'Please confirm your password',
+                  })}
+                />
+                {errors.confirmPassword && (
+                  <p className='mt-1 text-sm text-red-500'>
+                    {errors.confirmPassword.message}
+                  </p>
+                )}
+              </div> */}
+
+              {/* Sign Up Button */}
               <button
                 type='submit'
-                className='w-full py-4 bg-[var(--button-bg-color)] hover:bg-emerald-900 text-white font-medium rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl'>
-                Sign In
+                className='w-full py-4 bg-emerald-950 hover:bg-emerald-900 text-white font-medium rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl'>
+                Create Account
               </button>
             </form>
 
-            {/* Create Account Link */}
+            {/* Sign In Link */}
             <p className='mt-8 text-center text-gray-600'>
-              New to the inner circle ?{' '}
+              Already have an account?{' '}
               <Link
-                to='/signup'
+                to='/login'
                 className='font-semibold text-gray-900 hover:text-emerald-900 transition-colors'>
-                Create an account
+                Sign In
               </Link>
             </p>
           </div>
@@ -223,4 +272,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
