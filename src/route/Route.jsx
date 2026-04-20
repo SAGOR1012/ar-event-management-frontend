@@ -4,6 +4,7 @@ import App from '../App';
 import Main from '../layout/Main';
 import Home from '../pages/home/Home';
 import EventDetails from '../components/EventDetails/EventDetails';
+import Login from '../pages/loginPage/Login';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: '/event-details',
         element: <EventDetails></EventDetails>,
+      },
+      {
+        path: '/login',
+        element: <Login></Login>,
       },
     ],
   },

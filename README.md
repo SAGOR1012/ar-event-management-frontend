@@ -20,5 +20,6 @@ If you are developing a production application, we recommend using TypeScript wi
 1 Install React router for routing
 2 Install Tailwind Css For design
 3 Install Daisy UI for UI template
+4 Install React Hook Form for build booking/login form
 
 # ar-event-management-frontend
