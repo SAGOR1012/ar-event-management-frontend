@@ -4,8 +4,8 @@ import DateSearch from '../DatePicker/DateSearch';
 
 const Hero = () => {
   return (
-    <div className=''>
-      <div className='hero px-2 py-5'>
+    <div className=' '>
+      <div className='hero px-2 py-5 '>
         {/* Background Image */}
         <div className='hero-bg'></div>
 

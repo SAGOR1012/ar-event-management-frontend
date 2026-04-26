@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -47,7 +48,11 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className='btn btn-ghost text-xl'>AR Communication</a>
+          <Link
+            to='/'
+            className='btn btn-ghost text-xl'>
+            AR Convention
+          </Link>
         </div>
         <div className='navbar-center hidden lg:flex'>
           <ul className='menu menu-horizontal px-1'>

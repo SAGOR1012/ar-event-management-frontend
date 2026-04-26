@@ -21,5 +21,7 @@ If you are developing a production application, we recommend using TypeScript wi
 2 Install Tailwind Css For design
 3 Install Daisy UI for UI template
 4 Install React Hook Form for build booking/login form
+5 google font Merriweather use this font
+6 use Axios for better fetch control and error control
 
 # ar-event-management-frontend

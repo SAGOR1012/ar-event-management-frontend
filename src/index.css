@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 @plugin "daisyui";
+/* google font Merriweather */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 
 :root {
   --primary-bg-color: #f8faf9;
@@ -13,4 +15,8 @@
 }
 body {
   background-color: var(--primary-bg-color);
+  font-family: 'Merriweather', serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
